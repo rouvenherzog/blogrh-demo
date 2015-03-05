@@ -1,0 +1,26 @@
+extends ./layout.jade
+
+block head
+	title rouvenherzog - gallery
+
+block content
+	each tag in tags
+		h1.content-subhead #{tag.name}
+
+		div.post-images.pure-g
+			- var i = 0
+			while i <= parseInt(tag_media[tag.id].length/4)
+				- var slice = tag_media[tag.id].slice(i*4, (i+1)*4)
+				- i++
+
+				each media in slice
+					div.pure-u-1(class="pure-u-md-#{ 24/slice.length }-24", itemscope, itemtype="http://schema.org/ImageGallery")
+						figure(itemprop="associatedMedia", itemscope, itemtype="http://schema.org/ImageObject")
+							a(
+								itemprop="contentUrl",
+								href="#{media.paths['1024'].path}",
+								data-size="#{media.paths['1024'].width}x#{media.paths['1024'].height}"
+							)
+								img(src="#{media.paths['512'].path}", itemprop="thumbnail", alt="#{media.title}")
+
+							figcaption.post-image-meta(itemprop="caption description") #{media.title}

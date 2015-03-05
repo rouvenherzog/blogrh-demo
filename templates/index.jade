@@ -1,0 +1,58 @@
+extends ./layout.jade
+
+block head
+	title rouvenherzog
+	link(rel="stylesheet", type="text/css", href="/static/bower_components/fontawesome/css/font-awesome.min.css")
+
+block content
+	div.index
+		h1 A flexible NodeJS Blogging CMS
+
+		p.lead.
+			rouvenherzog is a simple, pluggable NodeJS blogging and gallery content management system.
+			It's highly flexible as it plugs in a backend to handle a blog and gallery only. How you use
+			the created entries is up to you.
+		p.center
+			a.pure-button(href="https://github.com/rouvenherzog/rouvenherzog")
+				i.fa.fa-github &nbsp;
+				| Check it out on github
+			button.pure-button
+				img(src="https://www.npmjs.com/static/misc/favicon.ico")
+				| Install using npm
+		p.
+			So you have an existing express application? Here is the blog system. Just install it using npm,
+			plug it into your app and you're done. Query the blog entries in your routes to embed them into your views.
+			It's up to you how you use them.
+
+		h3 How do I use it?
+		p.
+			You need to have an express app set up. Once you've done that its a simple three step process to get
+			up and running:
+
+		ol
+			li Install rouvenherzog using npm
+			li Call the register function to plug in rouvenherzog into your express ap
+			li Query Blog Entries or Gallery Objects and use them in your app
+
+		p.
+			Once you've registered rouvenherzog the backend will be available calling <code>/admin</code>.
+			User administation is available over the command line.
+			Head over to github for the full documentation.
+		p
+			a.pure-button(href="https://github.com/rouvenherzog/rouvenherzog/wiki/00-Home")
+				i.fa.fa-coffee &nbsp;
+				| Get started
+
+		h3 Wanna see what you get?
+		p.
+			This demo blog uses rouvenherzog. Go ahead and create a blog, publish it and inspect it on the blog page.
+			You can as well upload images, but be careful: It's public!
+			All entries get ereased after one day.
+		p
+			a.pure-button(href="/admin/login/?username=demo&password=password")
+				i.fa.fa-hand-o-right &nbsp;
+				| Go to the demo
+
+		p.appendix
+			| This page's layout is taken from purecss. 
+			a(href="http://purecss.io") Check it out.

@@ -1,0 +1,43 @@
+extends ./layout.jade
+
+block head
+	title #{ entry.title }
+
+block content
+	section.post.post-detail
+		div.post-footer
+			a(href="/blog").pure-button Back
+
+		header.post-header
+			h2.post-title= entry.title
+			p.post-meta
+				| written by 
+				b #{entry.created_by.username} 
+				if entry.created_by.username != entry.modified_by.username
+					| and modified by 
+					b #{entry.modified_by.username} 
+				| on #{entry.published_at.toLocaleDateString()}
+		div.post-description
+			div.post-body!= entry.body.rendered
+
+			if entry.media.length
+				- var i = 0
+				while i <= parseInt(entry.media.length/4)
+					- var slice = entry.media.slice(i*4, (i+1)*4)
+					- i++
+
+					div.post-images.pure-g
+						each media in slice
+							div.pure-u-1(class="pure-u-md-#{ 24/slice.length }-24", itemscope, itemtype="http://schema.org/ImageGallery")
+									figure(itemprop="associatedMedia", itemscope, itemtype="http://schema.org/ImageObject")
+										a(
+											itemprop="contentUrl",
+											href="#{media.paths['1024'].path}",
+											data-size="#{media.paths['1024'].width}x#{media.paths['1024'].height}"
+										)
+											img(src="#{media.paths['512'].path}", itemprop="thumbnail", alt="#{media.title}")
+
+										figcaption.post-image-meta(itemprop="caption description") #{media.title}
+
+		div.post-footer
+			a(href="/blog").pure-button Back

@@ -1,0 +1,18 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "rouvenherzog",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.11.1",
+    "jade": "~1.9.1",
+    "body-parser": "~1.11.0",
+    "i18n": "~0.5.0",
+    "nodemon": "~1.3.7"
+  }
+}

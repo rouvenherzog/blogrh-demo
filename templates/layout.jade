@@ -1,0 +1,95 @@
+doctype html
+html(lang="en")
+	head
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href='http://fonts.googleapis.com/css?family=Roboto:400,300,700', rel='stylesheet', type='text/css')
+		link(href="/static/bower_components/pure/pure-min.css", rel="stylesheet")
+		link(href="/static/bower_components/pure/grids-responsive-min.css", rel="stylesheet")
+		link(href="/static/bower_components/photoswipe/dist/photoswipe.css", rel="stylesheet")
+		link(href="/static/bower_components/photoswipe/dist/default-skin/default-skin.css", rel="stylesheet")
+		link(href="/static/css/style.css", rel="stylesheet")
+
+		block head
+			title rouvenherzog
+	body
+		div.pure-g#layout
+			div.sidebar.pure-u-1.pure-u-md-1-4
+				div.header
+					h1.brand-title rouven herzog Sample Blog
+					h2.brand-tagline Running on a simple, pluggable NodeJS CMS
+
+					nav.nav
+						ul.nav-list
+							li.nav-item
+								a.pure-button(href="/") Home
+							li.nav-item
+								a.pure-button(href="/admin/login/?username=demo&password=password") Try it
+							li.nav-item
+								a.pure-button(href="/blog") Blog
+							li.nav-item
+								a.pure-button(href="/gallery") Gallery
+
+				div.footer.hide-xs
+					p
+						| @author 
+						a(href="http://rouvenherzog.me") Rouven Herzog 
+						| | 
+						a(href="mailto:contact@rouvenherzog.me") Email 
+						| | 
+						a(href="https://github.com/rouvenherzog") Github
+
+			div.content.pure-u-1.pure-u-md-3-4
+				div.content-wrapper
+					block content
+						h1 Hello World
+
+				div.footer.show-xs
+					p.
+						@author Rouven Herzog | Email | Github
+		div.pswp
+			div.pswp__bg
+			div.pswp__scroll-wrap
+				div.pswp__container
+					div.pswp__item
+					div.pswp__item
+					div.pswp__item
+
+				div.pswp__ui.pswp__ui--hidden
+					div.pswp__top-bar
+						div.pswp__counter
+						button.pswp__button.pswp__button--close(title="Close (Esc)")
+						//- button.pswp__button.pswp__button--share(title="Share")
+						button.pswp__button.pswp__button--fs(title="Toggle fullscreen")
+						button.pswp__button.pswp__button--zoom(title="Zoom in/out")
+
+						div.pswp__preloader
+							div.pswp__preloader__icn
+								div.pswp__preloader__cut
+									div.pswp__preloader__donut
+
+					div.pswp__share-modal.pswp__share-modal--hidden.pswp__single-tap
+						div.pswp__share-tooltip
+
+					button.pswp__button.pswp__button--arrow--left(title="Previous (arrow left)")
+					button.pswp__button.pswp__button--arrow--right(title="Next (arrow right)")
+
+					div.pswp__caption
+						div.pswp__caption__center
+		script(type="text/javascript", src="/static/bower_components/photoswipe/dist/photoswipe.js")
+		script(type="text/javascript", src="/static/bower_components/photoswipe/dist/photoswipe-ui-default.min.js")
+		script(type="text/javascript", src="/static/js/gallery.js")
+
+		script(type="text/javascript").
+			var _paq = _paq || [];
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//piwik.rouvenherzog.me/";
+				_paq.push(['setTrackerUrl', u+'piwik.php']);
+				_paq.push(['setSiteId', 3]);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+			})();
+		noscript
+			p
+				img(src="//piwik.rouvenherzog.me/piwik.php?idsite=3",style="border:0;",alt="")
