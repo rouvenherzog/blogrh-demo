@@ -1,5 +1,6 @@
 window.addEventListener('load', function() {
 	var initPhotoSwipeFromDOM = function(gallerySelector) {
+		console.log("init gallery", gallerySelector);
 
 		// parse slide data (url, title, size ...) from DOM elements 
 		// (children of gallerySelector)
