@@ -5,4 +5,3 @@ node_modules
 # user uploads and bower_components
 static/uploads
 static/bower_components
-server.js
