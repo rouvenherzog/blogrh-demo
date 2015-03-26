@@ -1,5 +1,5 @@
 var express = require('express');
-var rouvenherzog = require('rouvenherzog');
+var blogrh = require('blogrh');
 
 var app = express();
 var account = '54f73d8ba26f922cec539c35';
@@ -7,13 +7,13 @@ var account = '54f73d8ba26f922cec539c35';
 var config = require('./config')(app);
 var routes = require('./routes')(app, account);
 
-rouvenherzog.register(app, {
+blogrh.register(app, {
 	uploaddir: __dirname + '/static/uploads',
 	uploadroot: '/static/uploads',
 	piwik: {
 		siteUrl: 'http://piwik.rouvenherzog.me',
 		siteId: 3,
-		authToken: '5a78aad39d2846a3d58845c5514a375d'
+		authToken: '635f757c61f8465bab00c24c4d0705d0'
 	},
 	secrets: {
 		cookie: 'asdfsafd#wqer§31Dcxv_',
